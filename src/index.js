@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Grid, Row, Col } from 'react-bootstrap';
-import { VotingTable } from './components/votingtable/VotingTable.js';
+import { Row, Col } from 'antd';
+import VotingTable from './components/votingtable/VotingTable.js';
 
 class App extends Component {
   render() {
     return (
-      <Grid>
-        <Row>
-          <Col md={8}>
-            <h1>A Simple Hello World Application</h1>
-          </Col>
-        </Row>
-      </Grid>
+      <Row>
+        <Col span={12}>
+          <h1>A Simple Hello World Application</h1>
+          <VotingTable />
+        </Col>
+      </Row>
     )
   }
 }

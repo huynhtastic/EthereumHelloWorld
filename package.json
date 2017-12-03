@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "antd": "^2.13.11",
+    "babel-preset-react": "^6.24.1",
     "ethereumjs-testrpc": "^6.0.3",
     "react": "^16.1.1",
-    "react-bootstrap": "^0.31.5",
     "react-dom": "^16.1.1",
     "react-scripts": "^1.0.17",
     "require-from-string": "^2.0.1",
@@ -19,6 +20,11 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "bootstrap": "^3.3.7"
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "solc-loader": "^1.1.1",
+    "val-loader": "^1.1.0",
+    "web3-loader": "^1.1.2",
+    "webpack": "^3.9.1"
   }
 }

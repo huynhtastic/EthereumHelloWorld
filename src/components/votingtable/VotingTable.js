@@ -1,23 +1,20 @@
+import * as network from '../../services/truffle.js';
 import Web3 from 'web3';
-import { React, Component } from 'react';
-import { Table } from 'react-bootstrap';
+import React, { Component } from 'react';
+import { Table } from 'antd';
 
 class VotingTable extends Component {
   render() {
-    var solc = require('solc');
+    const devNet = network.networks.development;
+    const devUrl = `http://${devNet.host}:${devNet.port}`;
+    var web3 = new Web3(devUrl);
+    //    var VotingContract = new web3.eth.Contract(votingContractCode.abi);
+
 
     return (
-      <Table bordered>
-        <thead>
-          <tr>
-            <th>Candidate</th>
-            <th>Votes</th>
-          </tr>
-        </thead>
-        <tbody>
-
-        </tbody>
-      </Table>
+      <h1>Placeholder</h1>
     )
   }
 }
+
+export default VotingTable;
