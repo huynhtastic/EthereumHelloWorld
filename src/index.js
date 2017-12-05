@@ -6,21 +6,34 @@ import Web3 from 'web3';
 
 import * as network from 'services/truffle.js';
 import VotingTable from 'components/votingtable/VotingTable.js';
-import * as VotingContract from 'contracts/Voting.json';
+import * as VotingContDef from 'contracts/Voting.json';
 
 const { Header, Content, Footer } = Layout;
 
 class App extends Component {
   render() {
+    var accounts;
+    var deployedContract;
+    var candidates = ['Richard', 'Ronly', 'Mary'];
+
     const devNet = network.networks.development;
     const devUrl = `http://${devNet.host}:${devNet.port}`;
     var web3 = new Web3(devUrl);
-    var accounts;
+    var votingContract = new web3.eth.Contract(VotingContDef.abi);
 
     web3.eth.getAccounts().then((accs) => {
       accounts = accs;
+      votingContract.deploy({
+        data: VotingContDef.abi,
+        arguments: [candidates.map(name => web3.utils.asciiToHex(name))],
+      })
+      .send({
+        from: accounts[0],
+        gas: 4500000,
+        gasLimit: '30000000000000',
+      })
+      .then((contract) => { deployedContract = contract; });
     });
-
 
     return (
       <Layout className='layout'>
